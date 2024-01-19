@@ -44,10 +44,11 @@ jobs:
         uses: hashicorp/vault-action@v2.7.4
         with:
           url: https://vault.indigolabs.ca
+          tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }}
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
           secrets: |
-              secret/data/shared/github whatever | whatever
+              secret/data/shared/github/workshop whatever | whatever
 
       - name: Sign in to GitHub Container Registry
         uses: docker/login-action@v2
